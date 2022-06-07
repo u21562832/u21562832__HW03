@@ -1,0 +1,39 @@
+﻿
+@using u21562832__HW03.Models;
+@model List<FileModel>
+
+<h2>Documents of any file type</h2>
+
+<h3>View all the files</h3>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">File Name</th>
+            <th scope="col">DOWNLOAD OPTION</th>
+            <th scope="col">DELETE OPTION</th>
+        </tr>
+    </thead>
+    @{ foreach (FileModel file in Model)
+        {
+        <tbody>
+                <tr>
+
+                    <td>@file.FileName</td>
+                    <td>
+                        <button type="button" class="btn btn-success" id="Download">
+                            Download
+                            @Html.ActionLink("Download", "DownloadFile", new { fileName = file.FileName })
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" id="Delete">
+                            Delete
+                            @Html.ActionLink("Delete", "DeleteFile", new { fileName = file.FileName })
+                        </button>
+                    </td>
+                </tr>
+        </tbody>
+        }
+    }
+</table>
