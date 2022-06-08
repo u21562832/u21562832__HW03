@@ -13,61 +13,60 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-sm-6">
-            <p>
-                The following information will be a description of how the system works. The system inlcudes a Home page (that you
-                are currently reading) that includes a form where the user needs to select whether they want to uploada file,image or
-                vide. On this page, the user will then be able to select the fileon their computer which will then be uploaded on submit
-                of the form. A files page where the systems must display a list of all the files that the user has uploaded.
-                The files page also has the functionality of deleting and downloading the file.
+            <div class="card">
+                <div class="card-body">
+                    <p>
+                        The following information will be a description of how the system works. The system inlcudes a Home page (that you
+                        are currently reading) that includes a form where the user needs to select whether they want to uploada file,image or
+                        vide. On this page, the user will then be able to select the fileon their computer which will then be uploaded on submit
+                        of the form. A files page where the systems must display a list of all the files that the user has uploaded.
+                        The files page also has the functionality of deleting and downloading the file.
 
-            </p>
+                    </p>
 
-            <p>
-                The system includes a Images page taht must display all the images the user (the images must be viewable) that
-                the user uploaded. The page has two functionalities that are to delete and download the images. Similarly to the images page,
-                the video page must display all the videos (the videos must be playable) that the user uploaded in an orderly way. It includes
-                the same two functionalities as the images page where the user can delete or download the videos.
-            </p>
+                    <p>
+                        The system includes a Images page taht must display all the images the user (the images must be viewable) that
+                        the user uploaded. The page has two functionalities that are to delete and download the images. Similarly to the images page,
+                        the video page must display all the videos (the videos must be playable) that the user uploaded in an orderly way. It includes
+                        the same two functionalities as the images page where the user can delete or download the videos.
+                    </p>
 
-            <p>
-                Finally, the system has a page that lets the user read more about the person who created the program.
-                The about me page should display a biography along with a picture (image) of the person who programmed the project. This is a helpful.
-                as this project will be uploaded to your GitHub repository that you will be able to share down the line
-            </p>
-        </div>
-        <form>
-            <div class="col-lg-4 col-sm-6">
-                <div class="form">
-                    <div class=" form-check">
-                        <input class="form-check-input" type="radio" name="Upload" id="DocumentID" value="Document" />
-                        <label class="form-check-label" for="Document"> Docuement </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Upload" id="ImageID" value="Image" />
-                        <label class="form-check-label" for="Image"> Image </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Upload" id="VideoID" value="Video" />
-                        <label class="form-check-label" for="video"> Video </label>
-                    </div>
-
-                    <div>
-                        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                        {
-                            <div>
-                                @Html.TextBox("file", "File", new { type = "file" }) <br />
-                                <input type="submit" value="Submit" />
-                                @ViewBag.Message
-                            </div>
-                        }
-                    </div>
+                    <p>
+                        Finally, the system has a page that lets the user read more about the person who created the program.
+                        The about me page should display a biography along with a picture (image) of the person who programmed the project. This is a helpful.
+                        as this project will be uploaded to your GitHub repository that you will be able to share down the line
+                    </p>
+                </div>
                 </div>
             </div>
-        </form>
-    </div>
-</div>
+
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Option Selection</h3>
+                            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <input type="radio" name="Upload" id="DocumentID" value="Document" />
+                                <label c for="Document"> Document </label><br />
+
+                                <input type="radio" name="Upload" id="ImageID" value="Image" />
+                                <label for="Image"> Image </label><br />
+
+                                <input type="radio" name="Upload" id="VideoID" value="Video" />
+                                <label for="Video"> Video </label><br />
+
+                                <div><input type="file" name="files" /></div>
+                                <br />
+                                <div><input type="submit" value="Upload" /></div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
 
 
 

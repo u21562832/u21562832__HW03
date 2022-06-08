@@ -54,7 +54,7 @@ namespace u21562832__HW03.Controllers
             byte[] bytes = System.IO.File.ReadAllBytes(path);
 
             System.IO.File.Delete(path);
-            return RedirectToAction("Index");
+            return RedirectToAction("Files");
         }
     }
 

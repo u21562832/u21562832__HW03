@@ -1,7 +1,46 @@
-﻿
-@{
-    ViewBag.Title = "Images";
-}
+﻿@using u21562832__HW03.Models;
+@model List<FileModel>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Add fancyBox -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+</head>
+
 
 <h2>Images</h2>
 
+<h3>Images of any file type</h3>
+<div class="column">
+    @foreach (var item in Model)
+    {
+        <div class="overflow-auto">
+            <div class="col-lg-4 col-md-3 col-sm-6 ">
+                <div class="gallery">
+                    <a href="~/Media/Images/@item.FileName" data-fancybox="gallery" data-caption="@item.FileName">
+                        <img src="~/Media/Images/@item.FileName" style="width: 300px; height: 350px " />
+                    </a>
+                </div>
+                <p>@item.FileName</p>
+                <br />
+
+                <button class="btn btn-success">
+                    @Html.ActionLink("Download", "Download", new { fileName = item.FileName }, new { @style = "color:#FFF;" })
+                </button>
+
+                <button class="btn btn-danger">
+                    @Html.ActionLink("Delete", "Delete", new { fileName = item.FileName }, new { @style = "color:#FFF;" })
+                </button>
+                <br />
+
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    $(document).ready(function ($) {
+        $(".gallery a").fancybox();
+    });
+</script>
