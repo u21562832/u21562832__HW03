@@ -21,12 +21,12 @@
                         <td>@file.FileName</td>
                         <td>
                             <button type="button" class="btn btn-success" id="Download">
-                                @Html.ActionLink("Download", "DownloadFile", new { fileName = file.FileName })
+                                @Html.ActionLink("Download", "DownloadFile", new { fileName = file.FileName }, new { @style = "color:#FFF;" })
                             </button>
                         </td>
                         <td>
                             <button type="button" class="btn btn-danger" id="Delete">
-                                @Html.ActionLink("Delete", "DeleteFile", new { fileName = file.FileName })
+                                @Html.ActionLink("Delete", "DeleteFile", new { fileName = file.FileName }, new { @style = "color:#FFF;" })
                             </button>
                         </td>
                     </tr>
